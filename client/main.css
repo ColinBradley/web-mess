@@ -1,0 +1,28 @@
+:root {
+    font-family: sans-serif;
+    color-scheme: light dark;
+}
+
+test .container {
+    width: 500px;
+    height: 500px;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+tests {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+test {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+canvas {
+    display: block;
+}

@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{ "path": "." },
+		{ "path": "./client" },
+		{ "path": "./server" },
+	],
+	"settings": {
+		"typescript.tsdk": "node_modules/typescript/lib",
+		"deno.lint": true,
+		"deno.unstable": false
+	}
+}
