@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Build client",
+            "type": "pwa-node",
+            "request": "launch",
+            "attachSimplePort": 9229,
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "--inspect-brk",
+                "--import-map=./importMap.json",
+                "--allow-env=ESBUILD_BINARY_PATH,XDG_CACHE_HOME,HOME",
+                "--allow-write=./www/static/,${env:HOME}/.cache/esbuild/",
+                "--allow-read=./,${env:HOME}/.cache/esbuild/",
+                "--allow-net=registry.npmjs.org",
+                "--allow-run"
+            ],
+            "program": "${workspaceFolder}/buildClient.ts",
+        },
+    ]
+}
