@@ -52,3 +52,5 @@ babylonButton.addEventListener('click', async () => {
         scene.render();
     });
 });
+
+babylonButton.click();

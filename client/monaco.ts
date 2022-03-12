@@ -11,20 +11,20 @@ import type * as monaco from 'monaco-editor';
 
         switch (label) {
             case 'json':
-                return getWorkerModule('/dist/vs/language/json/json.worker.js', label);
+                return getWorkerModule('/static/vs/language/json/json.worker.js', label);
             case 'css':
             case 'scss':
             case 'less':
-                return getWorkerModule('/dist/vs/language/css/css.worker.js', label);
+                return getWorkerModule('/static/vs/language/css/css.worker.js', label);
             case 'html':
             case 'handlebars':
             case 'razor':
-                return getWorkerModule('/dist/vs/language/html/html.worker.js', label);
+                return getWorkerModule('/static/vs/language/html/html.worker.js', label);
             case 'typescript':
             case 'javascript':
-                return getWorkerModule('/dist/vs/language/typescript/ts.worker.js', label);
+                return getWorkerModule('/static/vs/language/typescript/ts.worker.js', label);
             default:
-                return getWorkerModule('/dist/vs/editor/editor.worker.js', label);
+                return getWorkerModule('/static/vs/editor/editor.worker.js', label);
         }
     }
 } as monaco.Environment;
@@ -48,4 +48,4 @@ async function load() {
         });
 }
 
-export { };
+load();

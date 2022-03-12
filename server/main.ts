@@ -1,10 +1,6 @@
-import { serveTls } from 'std/http/server.ts';
+import HttpServer from "./server.ts";
 
-await serveTls(
-    (_req) => {
-        return new Response('Hi');
-    },
-    {
-        certFile: './server/config/https.crt',
-        keyFile: './server/config/https.key',
-    });
+const server = new HttpServer();
+await server.initialize(new AbortController().signal);
+server.listen1();
+server.listen2();

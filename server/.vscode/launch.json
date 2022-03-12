@@ -1,6 +1,23 @@
 {
     "configurations": [
         {
+            "name": "Launch server",
+            "type": "pwa-node",
+            "request": "launch",
+            "attachSimplePort": 9229,
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "deno",
+            "runtimeArgs": [
+                "run",
+                "--inspect-brk",
+                "--unstable",
+                "--import-map=./importMap.json",
+                "--allow-net=0.0.0.0:8443,0.0.0.0:8444",
+                "--allow-read=."
+            ],
+            "program": "./main.ts",
+        },
+        {
             "name": "Build client",
             "type": "pwa-node",
             "request": "launch",
