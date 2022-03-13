@@ -9,6 +9,9 @@
 		{
 			"path": "./server"
 		},
+		{
+			"path": "./rust_server"
+		},
 	],
 	"settings": {
 		"deno.importMap": "./server/importMap.json",
