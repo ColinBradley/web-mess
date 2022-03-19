@@ -20,6 +20,7 @@ export default class StaticFileServer {
         for await (const file of walk(this.rootPath, { includeDirs: false })) {
             const headers = {
                 'content-type': EXT_TO_CONTENT_TYPE.get(path.extname(file.name))!,
+                'cache-control': 'public, max-age=604800, immutable',
             };
 
             this.files.set(

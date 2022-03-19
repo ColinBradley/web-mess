@@ -49,6 +49,7 @@ async fn main() -> io::Result<()> {
 
     HttpServer::new(|| {
         App::new()
+            .wrap(actix_web::middleware::Compress::default())
             .app_data(web::Data::new(MessServer {
                 index_body: get_index_html().unwrap(),
                 static_files: get_static_files(),
