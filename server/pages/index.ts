@@ -40,7 +40,11 @@ export async function getIndexBody() {
         </test>
         <test>
             <button id="babylon-button">Babylon</button>
-            <canvas id="3d-container" class="container" style="background-color: rgb(65, 129, 70);">
+            <canvas id="3d-container" class="container" style="background-color: rgb(65, 129, 70);"></canvas>
+        </test>
+        <test>
+            <button id="trave-view-button">Trace View</button>
+            <canvas id="trace-test" class="container" style="background-color: rgb(65, 129, 70);"></canvas>
         </test>
     </tests>
     <script src="${mainJsPath}" type="module" async></script>

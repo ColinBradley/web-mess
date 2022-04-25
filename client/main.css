@@ -3,6 +3,12 @@
     color-scheme: light dark;
 }
 
+body,
+html {
+    height: 100%;
+    overflow-y: visible;
+}
+
 test .container {
     width: 500px;
     height: 500px;
@@ -25,4 +31,38 @@ test {
 
 canvas {
     display: block;
+}
+
+#trace-test {
+    height: 250px;
+    background-color: rgb(245 245 245);
+    resize: both;
+}
+
+#trace-content {
+    max-width: 500px;
+    overflow: auto;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0 1em;
+}
+
+dd {
+    margin: 0
+}
+
+h4 {
+    margin: .5em 0 .5em 0;
+}
+
+h5 {
+    margin: .5em 0 .5em 0;
+}
+
+dl,
+p {
+    margin: 0;
 }

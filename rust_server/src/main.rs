@@ -6,10 +6,10 @@ use actix_web::{web, App, Error, HttpRequest, HttpResponse, HttpServer};
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 
 async fn index(req: HttpRequest) -> Result<HttpResponse, Error> {
-    let cache = req.app_data::<web::Data<MessServer>>().unwrap();
+    // let cache = req.app_data::<web::Data<MessServer>>().unwrap();
     Ok(HttpResponse::Ok()
         .content_type("text/html")
-        .body(cache.index_body.clone()))
+        .body(get_index_html().unwrap()))
 }
 
 async fn static_files(req: HttpRequest) -> Result<HttpResponse, Error> {
@@ -105,13 +105,18 @@ fn get_index_html() -> Option<String> {
             <body>
                 <h1>Hello</h1>
                 <tests>
-                    <test>
+                    <!--<test>
                         <button id="monaco-button">Monaco</button>
-                        <div id="editor-container" class="container" style="background-color: rgb(66, 106, 146);"></div>
+                        <div id="editor-container" class="container"></div>
                     </test>
                     <test>
                         <button id="babylon-button">Babylon</button>
-                        <canvas id="3d-container" class="container" style="background-color: rgb(65, 129, 70);">
+                        <canvas id="3d-container" class="container"></canvas>
+                    </test>--!>
+                    <test>
+                        <button id="trave-view-button">Trace View</button>
+                        <canvas id="trace-test" class="container"></canvas>
+                        <div id="trace-content"></div>
                     </test>
                 </tests>
             </body>

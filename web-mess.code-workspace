@@ -12,6 +12,9 @@
 		{
 			"path": "./rust_server"
 		},
+		{
+			"path": "./rust_hyper"
+		},
 	],
 	"settings": {
 		"deno.importMap": "./server/importMap.json",

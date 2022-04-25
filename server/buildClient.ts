@@ -30,9 +30,9 @@ await esbuild.build({
     bundle: true,
     format: 'esm',
     splitting: true,
-    //sourcemap: 'inline',
-    minify: true,
-    // watch: true,
+    sourcemap: 'inline',
+    // minify: true,
+    watch: true,
     outdir: './www/static',
     loader: {
         '.ttf': 'file'
