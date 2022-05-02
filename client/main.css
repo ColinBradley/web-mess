@@ -10,7 +10,7 @@ html {
 }
 
 test .container {
-    width: 500px;
+    width: 1000px;
     height: 500px;
     max-width: 90vw;
     max-height: 90vh;
@@ -40,7 +40,6 @@ canvas {
 }
 
 #trace-content {
-    max-width: 500px;
     overflow: auto;
 }
 

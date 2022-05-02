@@ -263,31 +263,38 @@ export default class TraceViewer {
                 }
             }
 
-            this.renderContext.fillStyle = isSelected ? '#FFF' : '#000';
 
-            const timeText = (span.end - span.start).toFixed(1) + 'ms';
-            this.renderContext.font = spanTimeFont;
-            this.renderContext.textBaseline = 'bottom';
-            this.renderContext.textAlign = 'end';
-            this.renderContext.fillText(
-                timeText,
-                right - borderWidth,
-                top + rowHeight,
-            );
-
-            const timeTextSize = this.renderContext.measureText(timeText);
             const textLeft = Math.max(left + borderWidth, 0);
-            const textMaxWidth = right - textLeft - borderWidth - timeTextSize.width;
+            const textMaxWidth = right - textLeft - borderWidth;
+            const nameText = TraceViewer.truncateText(span.name, characterWidthSpanTitle, textMaxWidth);
 
+            this.renderContext.fillStyle = isSelected ? '#FFF' : '#000';
             this.renderContext.font = spanTitleFont;
             this.renderContext.textBaseline = 'middle';
             this.renderContext.textAlign = 'start';
             this.renderContext.fillText(
-                TraceViewer.truncateText(span.name, characterWidthSpanTitle, textMaxWidth),
+                nameText.text,
                 textLeft,
                 top + halfRowHeight + (borderWidth * 2),
-                textMaxWidth
+                textMaxWidth,
             );
+
+            if (nameText.fits) {
+                const timeMaxWidth = textMaxWidth - this.renderContext.measureText(span.name).width;
+                if (timeMaxWidth >= (characterWidthSpanTitle * 3)) {
+                    const timeText = (span.end - span.start).toFixed(1) + 'ms';
+
+                    this.renderContext.font = spanTimeFont;
+                    this.renderContext.textBaseline = 'bottom';
+                    this.renderContext.textAlign = 'end';
+                    this.renderContext.fillText(
+                        timeText,
+                        right - borderWidth,
+                        top + rowHeight,
+                        timeMaxWidth,
+                    );
+                }
+            }
         }
 
         if (this.activeSpan !== originalActiveSpan) {
@@ -440,10 +447,10 @@ export default class TraceViewer {
     private static truncateText(text: string, characterWidth: number, maxWidth: number) {
         const maxCharacters = Math.floor(maxWidth / characterWidth);
         if (text.length <= maxCharacters) {
-            return text;
+            return { text, fits: true };
         }
 
-        return text.substring(0, maxCharacters - 3) + '...';
+        return { text: text.substring(0, maxCharacters - 3) + '...', fits: false };
     }
 }
 

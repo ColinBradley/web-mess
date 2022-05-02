@@ -1,9 +1,17 @@
 import './main.css';
-import { testSpan } from './testSpan';
+import { testSpan } from './testData/testSpan';
+import type DatadogTrace from './tracing/datadogTrace';
+import { convertToNiceTrace } from './tracing/datadogTrace';
 // import './monaco';
 // import './babylon';
 import TraceViewer from './tracing/traceViewer';
 
+(document.getElementById('trave-view-button') as HTMLButtonElement).addEventListener('click', async () => {
+    const testData1 = (await import('./testData/8730446366462510288.json')) as any as DatadogTrace;
+
+    const root = convertToNiceTrace(testData1)!;
+    traceView.setReport(root);
+});
 const canvas = document.getElementById('trace-test') as HTMLCanvasElement;
 
 const traceView = new TraceViewer(canvas);
