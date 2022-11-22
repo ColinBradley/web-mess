@@ -1,0 +1,6 @@
+{
+    "imports": {
+        "std/": "https://deno.land/std@0.165.0/",
+        "esbuild/": "https://deno.land/x/esbuild@v0.15.15/"
+    }
+}

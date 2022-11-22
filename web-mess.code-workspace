@@ -17,6 +17,8 @@
 		},
 	],
 	"settings": {
-		"deno.importMap": "./server/importMap.json",
+		"deno.enable": true,
+		"deno.importMap": "./server/import_map.json",
+		"deno.config": "./server/deno.jsonc"
 	},
 }

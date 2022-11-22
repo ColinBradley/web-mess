@@ -4,5 +4,5 @@ deno run \
     --allow-read=./,$HOME/.cache/esbuild/ \
     --allow-net=registry.npmjs.org \
     --allow-run \
-    --import-map=./importMap.json \
+    --import-map=./import_map.json \
     ./buildClient.ts

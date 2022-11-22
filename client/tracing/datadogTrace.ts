@@ -1,4 +1,4 @@
-import { Span, SpanEvent, SpanEventType } from "./traceViewer";
+import { Span, SpanEvent, SpanEventType } from "./traceViewer.ts";
 
 export default interface DatadogTrace {
     orphaned: [
@@ -84,6 +84,7 @@ export function convertToNiceTrace(trace: DatadogTrace) {
                             break;
                         case 'time':
                             entry.time = Number.parseFloat(value);
+                            break;
                         default:
                             throw new Error('unknown key');
                     }

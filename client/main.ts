@@ -1,10 +1,8 @@
 import './main.css';
-import { testSpan } from './testData/testSpan';
-import type DatadogTrace from './tracing/datadogTrace';
-import { convertToNiceTrace } from './tracing/datadogTrace';
-// import './monaco';
-// import './babylon';
-import TraceViewer from './tracing/traceViewer';
+import { testSpan } from './testData/testSpan.ts';
+import type DatadogTrace from './tracing/datadogTrace.ts';
+import { convertToNiceTrace } from './tracing/datadogTrace.ts';
+import TraceViewer from './tracing/traceViewer.ts';
 
 (document.getElementById('trave-view-button') as HTMLButtonElement).addEventListener('click', async () => {
     const testData1 = (await import('./testData/8730446366462510288.json')) as any as DatadogTrace;

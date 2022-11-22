@@ -1,4 +1,4 @@
-import Signal from "../utils/signal";
+import Signal from "../utils/signal.ts";
 
 export interface TraceViewerOptions {
     borderWidthPx: number;
@@ -74,7 +74,7 @@ export default class TraceViewer {
     public selectedSpan: Span | undefined;
     public activeSpan: Span | undefined;
 
-    public async setReport(root: Span) {
+    public setReport(root: Span) {
         const allSpans: Span[] = [];
 
         this.startTime = root.start;
@@ -200,7 +200,7 @@ export default class TraceViewer {
         }
     }
 
-    private render(timeStamp: DOMHighResTimeStamp) {
+    private render(_timeStamp: DOMHighResTimeStamp) {
         this.activeAnimationFrameRequestHandle = undefined;
 
         const maxScrollY = Math.max(0, (this.spanRows.length + 1) * (this.options.rowHeightPx * this.devicePixelRatio) - this.canvas.height + (this.options.scrollThicknessPx * this.devicePixelRatio));
@@ -336,7 +336,7 @@ export default class TraceViewer {
         }
     }
 
-    private render_scrollBars(maxScrollX: number, maxScrollY: number) {
+    private render_scrollBars(_maxScrollX: number, maxScrollY: number) {
         const scrollThicknessPx = this.options.scrollThicknessPx * this.devicePixelRatio;
         const verticalLeft = (this.canvas.width - scrollThicknessPx) / this.devicePixelRatio;
         const verticalMaxHeight = ((this.canvas.height - (this.options.rowHeightPx * this.devicePixelRatio) - scrollThicknessPx) / this.devicePixelRatio);
@@ -464,7 +464,7 @@ export interface Span {
     data?: Record<string, string>;
     events?: SpanEvent[];
     children?: Span[];
-};
+}
 
 export interface SpanEvent {
     type: SpanEventType;
